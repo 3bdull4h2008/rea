@@ -56,7 +56,10 @@ const architectureForMachine = (
   if (machine === 0x0266 || machine === 0x0166 || machine === 0x0169) return "mips";
   if (machine === 0x01a2 || machine === 0x01a3 || machine === 0x01a4 || machine === 0x01a6 || machine === 0x01a8) return "sh4";
   if (machine === 0x0001 || machine === 0x0162) return "m68k";
-  if (machine === 0x0500) return "riscv";
+  if (machine === 0x0500 || machine === 0x5064) return "riscv";
+  // ARM variants (Nintendo 3DS/DS etc)
+  if (machine === 0x01c0 || machine === 0x01c2 || machine === 0x01c4) return "arm";
+  if (machine === 0xaa64) return "arm64";
   return undefined;
 };
 
