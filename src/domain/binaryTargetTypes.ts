@@ -9,11 +9,18 @@ export const BINARY_ARCHITECTURES = [
   "arm64",
   "arm64_32",
   "mips",
+  "mips64",
   "6502",
   "riscv",
   "powerpc",
+  "powerpc64",
   "m68k",
   "hexagon",
+  "sh4",
+  "cell",
+  "sparc",
+  "ia64",
+  "xtensa",
 ] as const;
 export type BinaryArchitecture = (typeof BINARY_ARCHITECTURES)[number];
 

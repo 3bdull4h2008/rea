@@ -63,6 +63,16 @@ const IDA_ARCHITECTURES = new Set<BinaryArchitecture>([
   "x86_64",
   "arm",
   "arm64",
+  "arm64_32",
+  "mips",
+  "mips64",
+  "powerpc",
+  "powerpc64",
+  "riscv",
+  "sh4",
+  "m68k",
+  "sparc",
+  "xtensa",
 ]);
 
 /** Bring-your-own IDA MCP candidate; discovery performs no provider startup. */

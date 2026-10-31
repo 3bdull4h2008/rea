@@ -27,7 +27,36 @@ const architectureForMachine = (
       return "arm";
     case 0xaa64:
       return "arm64";
+    case 0x01c4: // ARM Thumb-2
+    case 0x01f0: // IMAGE_FILE_MACHINE_POWERPC
+    case 0x01f1: // IMAGE_FILE_MACHINE_POWERPCFP
+    case 0x01f2: // IMAGE_FILE_MACHINE_POWERPCBE (Xbox 360 XEX)
+    case 0x0200: // IMAGE_FILE_MACHINE_IA64
+      return machine === 0x0200 ? "ia64" : "powerpc";
+    case 0x0266: // MIPS16
+    case 0x0166: // MIPS
+    case 0x0169: // MIPS16FPU
+    case 0x01a2: // SH3
+    case 0x01a3: // SH3DSP
+    case 0x01a4: // SH3E
+    case 0x01a6: // SH4 (Dreamcast/PlayStation 2?)
+    case 0x01a8: // SH5
+    case 0x01c2:
+    case 0x01c4:
+      // already covered
+      break;
   }
+  // More comprehensive mapping
+  if (machine === 0x014c) return "x86";
+  if (machine === 0x8664) return "x86_64";
+  if (machine === 0x01c0 || machine === 0x01c2 || machine === 0x01c4) return "arm";
+  if (machine === 0xaa64) return "arm64";
+  if (machine === 0x01f0 || machine === 0x01f1 || machine === 0x01f2) return "powerpc";
+  if (machine === 0x0200) return "ia64";
+  if (machine === 0x0266 || machine === 0x0166 || machine === 0x0169) return "mips";
+  if (machine === 0x01a2 || machine === 0x01a3 || machine === 0x01a4 || machine === 0x01a6 || machine === 0x01a8) return "sh4";
+  if (machine === 0x0001 || machine === 0x0162) return "m68k";
+  if (machine === 0x0500) return "riscv";
   return undefined;
 };
 
